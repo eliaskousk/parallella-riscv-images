@@ -40,7 +40,7 @@ conents somewhere in your SD card's `root` filesystem, e.g in a new `/home/paral
 This can be done either by placing the SD card on your workstation and copying the files there or later
 after the board is booted.
 
-* File List
+* **File List**
 
 After copying everything to your riscv folder on the `root` partition, you should have the following files:
 
@@ -54,7 +54,7 @@ File|Description
 **riscv/vmlinux**|RISC-V Linux Kernel
 **riscv/root.bin.tar.gz**|RISC-V Linux Root Filesystem Image Archive (Linaro 15.04)
 
-* Copying software
+* **Copying software**
 
 To copy the built files to an already booted board you can run the following (assuming your Parallella
 can be reached inside your network with the `parallella` host. You can replace this with parallella@ip
@@ -70,12 +70,13 @@ scp riscv/vmlinux parallella@parallella:~/riscv
 scp riscv/root.bin.tar.gz parallella@parallella:~/riscv
 ```
 
-* Extra steps needed
+* **Extra steps needed**
 
 The last file (root.bin.tar.gz) must be decompressed before using it to boot RISC-V Linux:
 
 ```bash
 parallella@parallella:~/riscv/$ tar xzf root.bin.tar.gz
+```
 
 The root filesystem archive besides taking less space, it is also useful as a backup in case you
 corrupt the root filesystem if you forget to shutdown the RISC-V Linux properly before powering off your board.
@@ -88,7 +89,7 @@ parallella@parallella:~/riscv/$ sudo cp libfesvr.so /usr/local/lib/
 parallella@parallella:~/riscv/$ sudo ldconfig
 ```
 
-* Running baremetal programs
+* **Running baremetal programs**
 
 fesvr and pk can be used to load RISC-V baremetal programs like this:
 
@@ -97,7 +98,7 @@ parallella@parallella:~/$ sudo ./fesvr pk hello
 Hello World!
 ```
 
-* Booting RISC-V Linux
+* **Booting RISC-V Linux**
 
 fesvr and bbl can be used to boot RISC-V Linux and perform simple tasks like shown below:
 
